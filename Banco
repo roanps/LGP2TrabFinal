@@ -1,0 +1,32 @@
+CREATE TABLE `reserva` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `data` date NOT NULL,
+  `descricao` varchar(45) NOT NULL,
+  `idServidor` int NOT NULL,
+  `idVeiculo` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idVeiculo_idx` (`idVeiculo`),
+  KEY `idServidor_idx` (`idServidor`),
+  CONSTRAINT `idServidor` FOREIGN KEY (`idServidor`) REFERENCES `servidor` (`id`),
+  CONSTRAINT `idVeiculo` FOREIGN KEY (`idVeiculo`) REFERENCES `veiculos` (`id`)
+) 
+CREATE TABLE `servidor` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) DEFAULT NULL,
+  `cpf` char(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) 
+
+CREATE TABLE `veiculos` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `placa` varchar(7) NOT NULL,
+  `modelo` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) 
+
+CREATE TABLE `user` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  `login` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`));
