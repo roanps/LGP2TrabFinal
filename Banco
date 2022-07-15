@@ -10,6 +10,7 @@ CREATE TABLE `reserva` (
   CONSTRAINT `idServidor` FOREIGN KEY (`idServidor`) REFERENCES `servidor` (`id`),
   CONSTRAINT `idVeiculo` FOREIGN KEY (`idVeiculo`) REFERENCES `veiculos` (`id`)
 ) 
+
 CREATE TABLE `servidor` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) DEFAULT NULL,
