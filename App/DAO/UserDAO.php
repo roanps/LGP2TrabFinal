@@ -12,21 +12,6 @@ class UserDAO{
         $this->conexao = new PDO($dsn, 'root', 'root');
     }
 
-    // Retorna o id da tabela user do banco de dados.
-    // O método exige um parâmetro $id do tipo inteiro.
-    public function selectById(int $id)
-    {
-        include_once 'Model/UserModel.php';
-
-        $sql = "SELECT * FROM user WHERE id = ?";
-
-        $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $id);
-        $stmt->execute();
-
-        return $stmt->fetchObject("UserModel"); // Retornando um objeto específico UserModel
-    }
-
 
     public function insertUser(UserModel $model){
         // Trecho de código SQL com marcadores ? para substituição posterior, no prepare
@@ -51,6 +36,18 @@ class UserDAO{
         $stmt->execute();
     }
 
+    public function encontrarEmailSenha(UserModel $model){
+        //https://stackoverflow.com/questions/20585535/sqlstatehy093-invalid-parameter-number-number-of-bound-variables-does-not-ma
+        $sql = "SELECT * FROM user WHERE user = :USER AND senha = :SENHA LIMIT 1";
+       
+        $stmt = $this->conexao->prepare($sql);
+       
+        $stmt->bindValue(":USER", $model->user, PDO::PARAM_INT);
+        $stmt->bindValue(":SENHA", $model->senha, PDO::PARAM_INT);
 
+        echo $model->user;
+        echo $model->senha;
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 ?>
