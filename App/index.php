@@ -3,7 +3,7 @@ session_start();
 include 'Controller/UserController.php';
 include 'Controller/VeiculosController.php';
 include 'Controller/ServidoresController.php';
-//include 'Controller/ReservasController.php';
+include 'Controller/ReservasController.php';
 
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -48,6 +48,16 @@ switch($url){
     break;
     case '/servidores/cadastrar/validar':
         ServidoresController::validarCadastro();
+    break;
+
+    case '/reservas':
+        ReservasController::listar();
+    break;
+    case '/reservas/cadastrar':
+        ReservasController::cadastrar();
+    break;
+    case '/reservas/cadastrar/validar':
+        ReservasController::validarCadastro();
     break;
 
     default:
