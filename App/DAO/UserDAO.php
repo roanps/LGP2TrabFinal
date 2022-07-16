@@ -42,12 +42,11 @@ class UserDAO{
        
         $stmt = $this->conexao->prepare($sql);
        
-        $stmt->bindValue(":USER", $model->user, PDO::PARAM_INT);
-        $stmt->bindValue(":SENHA", $model->senha, PDO::PARAM_INT);
-
-        echo $model->user;
-        echo $model->senha;
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+       // $stmt->bindValue(":USER", $model->user, PDO::PARAM_INT);
+       // $stmt->bindValue(":SENHA", $model->senha, PDO::PARAM_INT);
+        $stmt->execute(array(":USER" => $model->user, ":SENHA" => $model->senha));
+        $retorno = $stmt->fetch(PDO::FETCH_ASSOC);
+        return  $retorno;
     }
 }
 ?>

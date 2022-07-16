@@ -19,11 +19,14 @@ switch($url){
     break;
     case '/cadastrar/validar':
         UserController::validarCadastro();
-    break;
-    
+    break;   
     case '/inicio':
         UserController::inicial();
     break;
+    case '/sair':
+        UserController::sair();
+    break;
+
     default:
         echo "Erro 404";
     break;

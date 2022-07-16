@@ -1,5 +1,5 @@
 <?php 
-
+    
 class UserController{
 
     public static function logar(){
@@ -21,8 +21,11 @@ class UserController{
 
         //chama a função logar no model, tendo antes passado para o model o user e a senha digitados
         $model->logar();
-
-        echo 'deu boa';
+        if($model){
+             include 'View/Modules/User/Inicio.php';
+        }else{
+            echo 'deu ruim';
+        }
     }
 
     public static function validarCadastro(){
@@ -41,5 +44,11 @@ class UserController{
     public static function inicial(){
         include 'View/Modules/User/Inicio.php';
     } 
+
+    public static function sair(){
+        session_destroy();
+        setcookie('userCookie');
+        include 'View/Modules/User/Login.php';
+    }
 }
 ?>

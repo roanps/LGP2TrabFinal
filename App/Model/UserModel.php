@@ -22,12 +22,15 @@ class UserModel{
 
         //passa o model com o user e senha digitados para a função na DAO
         $dados = $dao->encontrarEmailSenha($this);
-
+        //echo $dados['nome']."!";
         if(empty($dados)){
-            echo 'deu ruim';
+            $_SESSION['msg'] = "Login efetuado com sucesso!";
+            return true;
         }else{
-            echo 'maiza';
+            return false;
         }
+
+        
     }
 }
 ?>

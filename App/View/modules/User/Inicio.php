@@ -13,7 +13,8 @@
         <li><a href="/servidores">Listar Servidores</a></li>
         <li><a href="/servidores/cadastrar">Cadastrar Servidores</a></li>
         <li><a href="/veiculos">Listar Veiculos</a></li>
-        <li><a href="/veiculos/cadastrar">Cadastrar Veiculos</a></li>
+        <li><a href="/veiculos/cadastrar ">Cadastrar Veiculos</a></li>
     </ul>
+    <a href="/sair">Sair</a>
 </body>
 </html>

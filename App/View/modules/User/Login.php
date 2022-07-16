@@ -14,6 +14,9 @@
         <label for="senha">Senha</label>
         <input type="password" name="senha" id="senha">
 
+        <input type="checkbox" class="checkbox" name="lembrar" id="lembrar">
+        <label for="lembrar">Lembrar de mim</label>
+        
         <button type="submit" class="botao">Entrar</button>
     </form>
     <a href="/cadastrar">Cadastrar Novo Usuario</a>
