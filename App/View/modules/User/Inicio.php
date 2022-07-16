@@ -1,3 +1,6 @@
+<?php 
+    include 'View/assets/header.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +10,7 @@
     <title>Inicio</title>
 </head>
 <body>
+    <h1><?= $_SESSION['nome']?> está logado!</h1>
     <ul>
         <li><a href="/reservas">Listar Reservas</a></li>
         <li><a href="/reservas/cadastrar">Cadastrar Reserva</a></li>
@@ -15,6 +19,6 @@
         <li><a href="/veiculos">Listar Veiculos</a></li>
         <li><a href="/veiculos/cadastrar ">Cadastrar Veiculos</a></li>
     </ul>
-    <a href="/sair">Sair</a>
+ 
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php 
-    
+
 class UserController{
 
     public static function logar(){
@@ -21,10 +21,17 @@ class UserController{
 
         //chama a função logar no model, tendo antes passado para o model o user e a senha digitados
         $model->logar();
-        if($model){
-             include 'View/Modules/User/Inicio.php';
+
+        $login = "falhou";
+        if(isset($_SESSION['nome'])){
+            $login = "sucesso";
+        }
+
+        if($login == "sucesso"){              
+            header('Location: /inicio');       
         }else{
-            echo 'deu ruim';
+            $_SESSION['erro'] = "Não foi possivel fazer login";
+            include 'View/Modules/User/Login.php';
         }
     }
 
@@ -39,16 +46,24 @@ class UserController{
         $model->cpf = $_POST['cpf'];
 
         $model->salvarUser();
+
+        include 'View/Modules/User/Login.php';
     }
 
     public static function inicial(){
-        include 'View/Modules/User/Inicio.php';
+        if(isset($_COOKIE["userCookie"]) || isset($_SESSION["nome"])){
+            include 'View/Modules/User/Inicio.php';
+        }else{
+            $_SESSION['erro'] = "Precisa fazer login para acessar essa página";
+            header('Location: /login');
+        }
     } 
 
     public static function sair(){
-        session_destroy();
         setcookie('userCookie');
-        include 'View/Modules/User/Login.php';
+        session_destroy();
+        
+        header('Location: /login');
     }
 }
 ?>

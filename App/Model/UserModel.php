@@ -10,7 +10,6 @@ class UserModel{
 
         if(empty($this->id))
         {
-            echo 'foi';
             $dao->insertUser($this);
         }
     }
@@ -22,15 +21,12 @@ class UserModel{
 
         //passa o model com o user e senha digitados para a função na DAO
         $dados = $dao->encontrarEmailSenha($this);
-        //echo $dados['nome']."!";
-        if(empty($dados)){
-            $_SESSION['msg'] = "Login efetuado com sucesso!";
-            return true;
-        }else{
-            return false;
-        }
-
         
+        if(empty($dados)){
+            $_SESSION['erro'] = "Não foi possível efetuar login!";
+        }else{
+            $_SESSION['nome'] = $dados['nome'];  
+        } 
     }
 }
 ?>

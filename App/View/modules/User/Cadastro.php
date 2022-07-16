@@ -7,7 +7,7 @@
     <title>Cadastro de Usuário</title>
 </head>
 <body>
-    <form method="POST" action="/cadastrar/validar">
+    <form method="POST" action="veiculos/cadastrar/validar">
         <label for="user">Usuario</label>
         <input type="text" name="user" id="user">
 
