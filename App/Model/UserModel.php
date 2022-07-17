@@ -9,7 +9,7 @@ class UserModel{
         $dao = new UserDAO();
 
         if(empty($this->id))
-        {
+        {   //Chama a função iserir usuário passando a própia model para a DAO
             $dao->insertUser($this);
         }
     }

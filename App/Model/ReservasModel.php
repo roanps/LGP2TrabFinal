@@ -1,7 +1,7 @@
 <?php
 class ReservasModel{
 
-    public $nome, $cpf;
+    public $data, $desc, $cpf, $placa;
     public $rows;
 
     public function salvarReserva(){

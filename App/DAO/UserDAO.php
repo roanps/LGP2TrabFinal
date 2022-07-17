@@ -26,8 +26,7 @@ class UserDAO{
         // Nesta etapa os bindValue são responsáveis por receber um valor e trocar em uma 
         // determinada posição, ou seja, o valor que está em 3, será trocado pelo terceiro ?
         // No que o bindValue está recebendo o model que veio via parâmetro e acessamos
-        // via seta qual dado do model queremos pegar para a posição em questão.
-        
+        // via seta qual dado do model queremos pegar para a posição em questão.       
         $stmt->bindValue(1, $model->user);
         $stmt->bindValue(2, $model->senha);
         $stmt->bindValue(3, $model->nome);
@@ -42,8 +41,6 @@ class UserDAO{
        
         $stmt = $this->conexao->prepare($sql);
        
-       // $stmt->bindValue(":USER", $model->user, PDO::PARAM_INT);
-       // $stmt->bindValue(":SENHA", $model->senha, PDO::PARAM_INT);
         $stmt->execute(array(":USER" => $model->user, ":SENHA" => $model->senha));
         $retorno = $stmt->fetch(PDO::FETCH_ASSOC);
         return  $retorno;

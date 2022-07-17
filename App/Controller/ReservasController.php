@@ -13,8 +13,10 @@ class ReservasController{
 
         $model->data = $_POST['data'];
         $model->desc = $_POST['desc'];
-
-        $model->salvarReserva();
+        $model->cpf = $_POST['cpf'];
+        $model->placa = $_POST['placa'];
+        
+        
 
         include 'View/Modules/User/Inicio.php';
     }
